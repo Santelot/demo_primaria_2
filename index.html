@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2 Misión 1/3 IA Para los Océanos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .banner .summary {
+            font-size: 0.9em;
+            color: white;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .content .section {
+            margin-bottom: 15px;
+        }
+        .content .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-6').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-5').style.display = 'none';
+                document.getElementById('activity-6').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<h1>P2 Misión 1/3 IA Para los Océanos</h1>
+
+<div class="note">
+    <strong>PREPARACIÓN DE MISIÓN:</strong>
+    <p>Antes de iniciar la misión, asegúrate de tener todos los materiales listos y haber revisado los recursos adicionales. Verifica que el proyector y la computadora funcionen, y asegúrate de que los enlaces de los videos estén accesibles. Prepara las diapositivas necesarias y organiza las computadoras para que los estudiantes tengan acceso al curso de la Hora del Código.</p>
+</div>
+
+<div class="dropdown">
+    <label for="time-select">Tiempo efectivo de Clase:</label>
+    <select id="time-select" onchange="updateActivities()">
+        <option value="50">50 minutos</option>
+        <option value="45">45 minutos</option>
+        <option value="40">40 minutos</option>
+    </select>
+</div>
+
+<h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo')">
+        <div class="title">
+            <span>📚 Actividad 1</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Saludo</div>
+        <div class="summary">Captar la atención de los estudiantes e introducir la misión del día.</div>
+    </div>
+    <div id="saludo" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Buenos días, genios marinos! Hoy tenemos una misión muy especial. Vamos a descubrir una manera de utilizar la tecnología para limpiar nuestros océanos. ¿Están listos?</div>
+            <div class="dialogue">Comencemos la clase con nuestra tradicional reverencia japonesa de la mano de Surimi San.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Dar la bienvenida a los estudiantes y presentar brevemente el tema del día.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion')">
+        <div class="title">
+            <span>📚 Actividad 2</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Innovación del Día</div>
+        <div class="summary">Inspirar a los estudiantes mostrando una aplicación real de la tecnología para limpiar océanos.</div>
+    </div>
+    <div id="innovacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a ver un video sobre una innovación real que está ayudando a proteger el medio ambiente. ¡Vamos a verlo juntos!</div>
+            <div class="dialogue">¿Qué les pareció el video? ¿Qué les gustó más sobre esta innovación?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar el <a href="https://www.youtube.com/watch?v=hcpLWt1l23Q" target="_blank">video sobre innovación</a>.</p>
+            <p>Discutir brevemente lo que vieron en el video.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion')">
+        <div class="title">
+            <span>📚 Actividad 3</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Introducción Lúdica</div>
+        <div class="summary">Introducir la misión del día y preparar a los estudiantes para la actividad principal.</div>
+    </div>
+    <div id="introduccion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a empezar con un juego rápido. Les diré algunos hechos sobre los océanos, y ustedes dirán si son verdaderos o falsos. Colóquense frente a la pared derecha del salón si creen que el dato es verdadero, o frente a la pared izquierda si creen que es falso.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva de introducción a la misión.</p>
+            <p>Realizar el juego "Verdadero o Falso".</p>
+            <p>Preguntas:</p>
+            <ul>
+                <li>Los océanos cubren más del 70% de la superficie de la Tierra. (Verdadero)</li>
+                <li>La mayoría de la basura en los océanos proviene de desechos industriales. (Falso, la mayoría proviene de residuos plásticos)</li>
+                <li>Hay más especies de peces en los océanos que especies de aves en el cielo. (Verdadero)</li>
+                <li>El océano más grande del mundo es el Océano Atlántico. (Falso, es el Océano Pacífico)</li>
+                <li>Los océanos producen más del 50% del oxígeno del mundo. (Verdadero)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('programacion')">
+        <div class="title">
+            <span>📚 Actividad 4</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Instrucción de Programación</div>
+        <div class="summary">Explicar cómo funciona la IA y qué es el Aprendizaje Automático.</div>
+    </div>
+    <div id="programacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a ver un video sobre cómo funciona la inteligencia artificial y el aprendizaje automático.</div>
+            <div class="dialogue">La inteligencia artificial es como un cerebro que podemos entrenar para reconocer cosas. Hoy vamos a entrenar una IA para que pueda distinguir entre peces y basura en el océano.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva de introducción a la IA.</p>
+            <p>Mostrar el <a href="https://www.youtube.com/watch?v=d57uoV7O7zc" target="_blank">video sobre IA y Aprendizaje Automático</a>.</p>
+            <p>Explicar brevemente los conceptos de inteligencia artificial y aprendizaje automático.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('exploracion')">
+        <div class="title">
+            <span>📚 Actividad 5</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Actividad de Exploración</div>
+        <div class="summary">Facilitar la comprensión del concepto de IA mediante una actividad en parejas.</div>
+    </div>
+    <div id="exploracion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a hacer un pequeño ejercicio de memoria. Les mostraré una secuencia de imágenes y ustedes tendrán que recordar el orden.</div>
+            <div class="dialogue">Vean estas imágenes (peces y basura). Ahora, ¿pueden recordar el orden correcto?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva con la secuencia de imágenes.</p>
+            <p>Realizar el juego de memoria en parejas:</p>
+            <ul>
+                <li>Mostrar una secuencia de imágenes durante 10 segundos.</li>
+                <li>Pedir a los estudiantes que recuerden el orden.</li>
+                <li>Los estudiantes se agrupan en parejas y comparten el orden que recuerdan.</li>
+                <li>Repetir la secuencia una vez más para verificar las respuestas.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('proyecto')">
+        <div class="title">
+            <span>📚 Actividad 6</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Desarrollo del Proyecto</div>
+        <div class="summary">Trabajar en el primer nivel del curso de la Hora del Código, entrenando a la IA para que nos ayude a limpiar los océanos.</div>
+    </div>
+    <div id="proyecto" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora es el momento de poner manos a la obra. Hoy vamos a entrenar a la IA para que nos ayude a limpiar los océanos. Esta es una aplicación de la IA que nos puede ayudar a cambiar el mundo.</div>
+            <div class="dialogue">Recuerden que pueden pedir ayuda si tienen dudas. ¡Diviértanse aprendiendo a programar!</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva con las instrucciones para el nivel 1.</p>
+            <p>Guiar a los estudiantes a través del nivel 1, ofreciendo asistencia cuando sea necesario.</p>
+            <p><a href="https://studio.code.org/s/aiml-2021/lessons/1/levels/1?no_redirect=1" target="_blank">Acceder al curso de la Hora del Código - IA para Océanos</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('cierre')">
+        <div class="title">
+            <span>📚 Actividad 7</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Cierre y Reflexión</div>
+        <div class="summary">Reflexionar sobre lo aprendido y discutir experiencias.</div>
+    </div>
+    <div id="cierre" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Qué les pareció la actividad de hoy? ¿Qué aprendieron sobre cómo podemos usar la IA para proteger nuestros océanos?</div>
+            <div class="dialogue">¿Qué creen que podríamos programar la próxima vez?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Proyectar la diapositiva de cierre y reflexión.</p>
+            <p>Facilitar una discusión en grupo sobre lo aprendido y las experiencias de los estudiantes.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
